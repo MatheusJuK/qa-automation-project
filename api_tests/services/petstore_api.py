@@ -49,7 +49,7 @@ class PetStoreAPI:
         return response
     
     
-    def find_purchase_order_by_id(self, order_id):
+    def get_order_by_id(self, order_id):
         url = f"{self.BASE_URL}/store/order/{order_id}"
         response = self.session.get(url)
         return response
@@ -64,7 +64,7 @@ class PetStoreAPI:
         response = self.session.get(url)
         return response
     
-    def place_order(self, payload):
+    def create_order(self, payload):
         url = f"{self.BASE_URL}/store/order"
         response = self.session.post(url, json=payload)
         return response
