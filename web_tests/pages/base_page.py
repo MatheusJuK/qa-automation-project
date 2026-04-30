@@ -13,7 +13,12 @@ class BasePage:
         )
     
     def click(self, by, locator):
-        self.find(by, locator).click()
+        element =  WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((by, locator))
+        )
+        
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+        element.click()
     
     def type(self, by, locator, text):
         element = self.find(by, locator)
