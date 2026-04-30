@@ -96,7 +96,7 @@ class PetStoreAPI:
             response = self.session.post(url, files=files)
         return response
     
-    def add_pet(self, payload):
+    def create_pet(self, payload):
         url = f"{self.BASE_URL}/pet"
         response = self.session.post(url, json=payload)
         return response
