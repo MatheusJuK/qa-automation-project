@@ -1,7 +1,7 @@
 import requests
 
 class PetStoreAPI:
-    BASE_URL = "https://petstore.swagger.io"
+    BASE_URL = "https://petstore.swagger.io/v2"
 
     def __init__(self):
         self.session = requests.Session()
