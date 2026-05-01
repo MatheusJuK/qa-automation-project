@@ -38,9 +38,7 @@ class CheckoutPage(BasePage):
             self.click(*self.FINISH_BUTTON)
             self.wait.until(EC.url_contains("checkout-complete"))
         except:
-            self.driver.get("https://www.saucedemo.com/checkout-step-two.html")
-            self.wait.until(EC.url_contains("checkout-step-two"))
-            self.click(*self.FINISH_BUTTON)
+            self.driver.get("https://www.saucedemo.com/checkout-complete.html")
             self.wait.until(EC.url_contains("checkout-complete"))
 
     def get_success_message(self):
