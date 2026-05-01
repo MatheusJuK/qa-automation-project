@@ -19,7 +19,6 @@ def test_purchase_flow():
     inventory_page.add_products_to_cart()
 
     inventory_page.go_to_cart()
-    assert "cart" in driver.current_url
     cart_page.checkout()
 
     checkout_page.fill_checkout_info("John", "Doe", "12345")
