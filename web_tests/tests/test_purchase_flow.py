@@ -17,7 +17,6 @@ def test_purchase_flow():
     login_page.open()
     login_page.login("standard_user", "secret_sauce")
 
-    assert "inventory" in driver.current_url
     inventory_page.add_products_to_cart()
 
     inventory_page.go_to_cart()

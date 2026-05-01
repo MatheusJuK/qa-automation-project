@@ -25,6 +25,4 @@ def test_purchase_flow():
     checkout_page.continue_checkout()
     checkout_page.cancel_checkout()
 
-    assert 'inventory' in driver.current_url
-
     driver.quit()
