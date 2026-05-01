@@ -3,8 +3,6 @@ from web_tests.pages.login_page import LoginPage
 from web_tests.pages.inventory_page import InventoryPage
 from web_tests.pages.cart_page import CartPage
 from web_tests.pages.checkout_page import CheckoutPage
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 def test_purchase_flow():
     driver = create_driver()
@@ -22,7 +20,6 @@ def test_purchase_flow():
         inventory_page.add_products_to_cart()
 
         inventory_page.go_to_cart()
-        cart_page.wait_for_cart_page()
         
         assert "cart" in driver.current_url
         cart_page.checkout()

@@ -32,7 +32,7 @@ class CheckoutPage(BasePage):
         self.click(*self.CANCEL_BUTTON)
         
     def wait_for_checkout_step_two(self):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 5).until(
             EC.url_contains("checkout-step-two")
         )
     
