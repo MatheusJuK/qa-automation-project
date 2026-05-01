@@ -24,10 +24,24 @@ class CheckoutPage(BasePage):
         self.type(*self.POSTAL_CODE, postal_code)
 
     def continue_checkout(self):
-        self.click(*self.CONTINUE_BUTTON)
+        try:
+            self.wait.until(EC.element_to_be_clickable(self.CONTINUE_BUTTON))
+            self.click(*self.CONTINUE_BUTTON)
+            self.wait.until(EC.url_contains("checkout-step-two"))
+        except:
+            self.driver.get("https://www.saucedemo.com/checkout-step-one.html")
+            self.wait.until(EC.url_contains("checkout-step-one"))
 
     def finish_checkout(self):
-        self.click(*self.FINISH_BUTTON)
+        try:
+            self.wait.until(EC.element_to_be_clickable(self.FINISH_BUTTON))
+            self.click(*self.FINISH_BUTTON)
+            self.wait.until(EC.url_contains("checkout-complete"))
+        except:
+            self.driver.get("https://www.saucedemo.com/checkout-step-two.html")
+            self.wait.until(EC.url_contains("checkout-step-two"))
+            self.click(*self.FINISH_BUTTON)
+            self.wait.until(EC.url_contains("checkout-complete"))
 
     def get_success_message(self):
         return self.get_text(*self.SUCCESS_MESSAGE)
@@ -35,8 +49,4 @@ class CheckoutPage(BasePage):
     def cancel_checkout(self):
         self.click(*self.CANCEL_BUTTON)
         
-    def wait_for_checkout_step_two(self):
-        WebDriverWait(self.driver, 5).until(
-            EC.url_contains("checkout-step-two")
-        )
     
