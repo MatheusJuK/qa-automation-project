@@ -14,7 +14,7 @@ class InventoryPage(BasePage):
     ADD_TO_CART_TSHIRT = (By.ID, "add-to-cart-sauce-labs-bolt-t-shirt")
     ADD_TO_CART_JACKET = (By.ID, "add-to-cart-sauce-labs-fleece-jacket")
     ADD_TO_CART_ONESIE = (By.ID, "add-to-cart-sauce-labs-onesie")
-    ADD_TO_CART_ALL = (By.ID, "add-to-cart-test.allthethings()-t-shirt-(red)")
+    ADD_TO_CART_ALL = (By.XPATH, "//button[@id='add-to-cart-test.allthethings()-t-shirt-(red)']")
     CART_BUTTON = (By.CLASS_NAME, "shopping_cart_link")
     FILTER = (By.CLASS_NAME, "product_sort_container")
     FILTER_PRICE_LOW_TO_HIGH = (By.XPATH, "//option[@value='lohi']")
