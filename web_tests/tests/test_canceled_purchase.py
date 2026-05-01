@@ -23,6 +23,7 @@ def test_purchase_flow():
 
     checkout_page.fill_checkout_info("John", "Doe", "12345")
     checkout_page.continue_checkout()
+    checkout_page.wait_for_checkout_page()
     checkout_page.cancel_checkout()
 
     driver.quit()

@@ -17,14 +17,18 @@ def test_purchase_flow():
     login_page.open()
     login_page.login("standard_user", "secret_sauce")
 
+    assert "inventory" in driver.current_url
     inventory_page.add_products_to_cart()
 
     inventory_page.go_to_cart()
     cart_page.wait_for_cart_page()
+    
+    assert "cart" in driver.current_url
     cart_page.checkout()
 
     checkout_page.fill_checkout_info("John", "Doe", "12345")
     checkout_page.continue_checkout()
+    checkout_page.wait_for_checkout_page()
     checkout_page.finish_checkout()
 
     success_message = checkout_page.get_success_message()
