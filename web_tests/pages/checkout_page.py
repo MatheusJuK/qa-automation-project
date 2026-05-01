@@ -13,6 +13,10 @@ class CheckoutPage(BasePage):
     FINISH_BUTTON = (By.ID, "finish")
     SUCCESS_MESSAGE = (By.CLASS_NAME, "complete-header")
     CANCEL_BUTTON = (By.ID, "cancel")
+    
+    def __init__(self, driver):
+        self.driver = driver
+        self.wait = WebDriverWait(driver, 10)
 
     def fill_checkout_info(self, first_name, last_name, postal_code):
         self.type(*self.FIRST_NAME, first_name)
