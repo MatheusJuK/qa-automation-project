@@ -17,6 +17,7 @@ class BasePage:
             EC.presence_of_element_located((by, locator))
         )
         
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
         self.driver.execute_script("arguments[0].click();", element)
     
     def type(self, by, locator, text):
