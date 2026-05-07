@@ -141,7 +141,13 @@ venv\Scripts\activate
 
 ---
 
-### 3. Instalar dependências
+### 3. Selecionar interpretador
+
+selecionador o interpretador python da venv
+
+---
+
+### 4. Instalar dependências
 
 ```
 pip install -r requirements.txt
@@ -149,7 +155,13 @@ pip install -r requirements.txt
 
 ---
 
-### 4. Executar os testes
+### 5. Instalar o chrome caso não tenha
+
+Instalar chrome
+
+---
+
+### 6. Executar os testes
 
 ```
 pytest -v
